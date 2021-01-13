@@ -64,7 +64,6 @@ public class CountryListActivity extends SuperActivity implements ConnectivityRe
         binding.executePendingBindings();
         updateToolbarWithoutBackButton(getResources().getString(R.string.title_country_list));
         receiver = new ConnectivityReceiver();
-        viewModel.init(page,limit);
         initRecyclerView();
         TataSamApplication.getInstance().setConnectivityListener(this);//assign refence of current activity to listener of Connectivity receiver
         binding.scrollView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
@@ -84,6 +83,8 @@ public class CountryListActivity extends SuperActivity implements ConnectivityRe
             }
         });;
         if(new CommonUtility(this).checkInternetConnection()) {
+            binding.progressBar.setVisibility(View.VISIBLE);
+            viewModel.init(page,limit);
             fetchCountriesList();
         }
         else{
@@ -141,8 +142,8 @@ public class CountryListActivity extends SuperActivity implements ConnectivityRe
         }
         return true;
     }
+    //add observer
     private void fetchCountriesList(){
-        binding.progressBar.setVisibility(View.VISIBLE);
         viewModel.getCountries().observe(this, new Observer<JsonObject>() {
             @Override
             public void onChanged(JsonObject countryListResponse) {
@@ -174,6 +175,8 @@ public class CountryListActivity extends SuperActivity implements ConnectivityRe
     @Override
     public void onNetworkConnectionChanged(boolean isConnected) {
         if(isConnected) {
+            binding.progressBar.setVisibility(View.VISIBLE);
+            viewModel.init(page++,limit);
             fetchCountriesList();
         }
         else

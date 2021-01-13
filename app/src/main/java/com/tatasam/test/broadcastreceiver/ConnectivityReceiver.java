@@ -11,8 +11,8 @@ public class ConnectivityReceiver extends BroadcastReceiver {
     public static ConnectivityReceiverListener connectivityReceiverListener;
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.d("Inside"," Network connectivity change");
         boolean isConnected = new CommonUtility(context).checkInternetConnection();
+        Log.d("Inside"," Network connectivity change"+isConnected);
         if(connectivityReceiverListener!=null)
             connectivityReceiverListener.onNetworkConnectionChanged(isConnected);
     }
