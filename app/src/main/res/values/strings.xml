@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TataSam</string>
+    <string name="msg_empty">There is no data to display</string>
+    <string name="msg_offline">Please check your network connectivity</string>
+    <string name="title_country_list">Countries</string>
+    <string name="title_fav_country_list">Favourite Countries</string>
+</resources>

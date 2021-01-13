@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    card_view:cardCornerRadius="5dp"
+    android:layout_margin="10dp">
+    <RelativeLayout
+        android:padding="6dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imgFavourite"
+            android:src="@drawable/dislike"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_width="35dp"
+            android:layout_height="30dp">
+        </ImageView>
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical"
+            android:layout_toRightOf="@+id/imgFavourite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:visibility="visible"
+                    android:text="India"
+                    android:id="@+id/labelCountryCode"
+                    style="@style/label"/>
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:gravity="right"
+                    android:layout_gravity="right"
+                    android:visibility="visible"
+                    android:text="India"
+                    android:id="@+id/labelCountryName"
+                    style="@style/label"/>
+            </LinearLayout>
+            <TextView
+                android:visibility="visible"
+                android:text="India"
+                android:id="@+id/labelCountryRegion"
+                style="@style/label"/>
+        </LinearLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
